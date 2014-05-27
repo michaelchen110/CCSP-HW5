@@ -17,6 +17,7 @@ var app = express();
 // var Vote = mongoose.model('Vote'); // TODO [DB] : Get Vote model
 
 // all environments
+
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -26,7 +27,7 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(express.cookieParser(process.env.COOKIE_SECRET));
-app.use(express.session());
+app.use(express.session({secret: 'topsecret'}));
 
 // https://github.com/jaredhanson/passport#middleware
 app.use(passport.initialize());
