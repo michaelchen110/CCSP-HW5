@@ -98,7 +98,7 @@ app.get('/result', function(req, res){
   vote.save(function(err, newVote){
     if( err ){
       req.flash('info', "你已經投過票囉！");
-      return res.redirect('/');
+      return res.redirect('/result');
     }
   //
   //   ... ...
