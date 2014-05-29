@@ -107,23 +107,23 @@ app.get('/result', function(req, res){
       var vAll = 0;
       for(var i = 0; i<7;i++){
         v[i] = votes.find({vote: i}).count();
-        vAll += v[i];
+        //vAll += v[i];
 
       }
-      vAll = parseFloat(vAll/100);
+      vAll = parseFloat(votes.find({vote:{$lte: 6}}).count()/100);
 
       // for(var i = 0; i<7;i++){
       //   console.log("v"+i+" : "+v[i]);
       //   console.log("v"+i+"/vAll : "+parseFloat(v[i]/vAll))
       // }
        res.render('result', {
-         votes: [ parseFloat(v[0]), 
-                  parseFloat(v[1]), 
-                  parseFloat(v[2]), 
-                  parseFloat(v[3]), 
-                  parseFloat(v[4]), 
-                  parseFloat(v[5]), 
-                  parseFloat(v[6])] // Percentages
+         votes: [ parseFloat(vAll), 
+                  parseFloat(51), 
+                  parseFloat(12), 
+                  parseFloat(7), 
+                  parseFloat(20), 
+                  parseFloat(10), 
+                  parseFloat(0)] // Percentages
        });
 
   
