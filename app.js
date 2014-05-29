@@ -111,20 +111,29 @@ app.get('/result', function(req, res){
 
       }
       vAll = parseFloat(vAll/100);
-      alert("vAll: "+vAll);
-      
-      for(var i = 0; i<7;i++){
-        console.log("v"+i+" : "+v[i]);
-        console.log("v"+i+"/vAll : "+parseFloat(v[i]/vAll))
-      }
-       res.render('result', {
-         votes: [ parseFloat(v[0]/vAll), 
-                  parseFloat(v[1]/vAll), 
-                  parseFloat(v[2]/vAll), 
-                  parseFloat(v[3]/vAll), 
-                  parseFloat(v[4]/vAll), 
-                  parseFloat(v[5]/vAll), 
-                  parseFloat(v[6]/vAll)] // Percentages
+
+      // for(var i = 0; i<7;i++){
+      //   console.log("v"+i+" : "+v[i]);
+      //   console.log("v"+i+"/vAll : "+parseFloat(v[i]/vAll))
+      // }
+      //  res.render('result', {
+      //    votes: [ parseFloat(v[0]/vAll), 
+      //             parseFloat(v[1]/vAll), 
+      //             parseFloat(v[2]/vAll), 
+      //             parseFloat(v[3]/vAll), 
+      //             parseFloat(v[4]/vAll), 
+      //             parseFloat(v[5]/vAll), 
+      //             parseFloat(v[6]/vAll)] // Percentages
+      //  });
+
+   res.render('result', {
+         votes: [ parseFloat(12), 
+                  parseFloat(15.5), 
+                  parseFloat(0.5), 
+                  parseFloat(22), 
+                  parseFloat(40), 
+                  parseFloat(5), 
+                  parseFloat(vAll)] // Percentages
        });
   
   });
