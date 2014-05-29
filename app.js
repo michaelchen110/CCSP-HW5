@@ -108,9 +108,10 @@ app.get('/result', function(req, res){
       for(var i = 0; i<7;i++){
         v[i] = Vote.find({vote: i}).count();
         vAll += v[i];
+
       }
       vAll = parseFloat(vAll/100);
-      console.log("vAll: "+vAll);
+      alert("vAll: "+vAll);
       
       for(var i = 0; i<7;i++){
         console.log("v"+i+" : "+v[i]);
