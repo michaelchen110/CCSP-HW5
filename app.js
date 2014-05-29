@@ -100,32 +100,27 @@ app.get('/result', function(req, res){
       req.flash('info', "你已經投過票囉！");
       return res.redirect('/');
     }
-  //
-  //   ... ...
-  //
-      var v = [];
-      var vAll = 0;
-      for(var i = 0; i<7;i++){
-        v[i] = votes.find({vote: i}).count();
-        //vAll += v[i];
 
+    Vote.find(function (err, votes) {
+      if (err) {
+        console.error(err);
+        res.json({error: err.name}, 500);
+      };
+
+      var total = votes.length,
+          counts = [0, 0, 0, 0, 0, 0, 0],
+          perc = [];
+      for (var i = 0; i < total; i++) {
+        counts[votes[i].vote]++;
       }
-      vAll = parseFloat(votes.find({vote:{$lte: 6}}).count()/100);
+      for (var i = 0; i < 7; i++) {
+        perc[i] = (counts[i] / total) * 100;
+      }
 
-      // for(var i = 0; i<7;i++){
-      //   console.log("v"+i+" : "+v[i]);
-      //   console.log("v"+i+"/vAll : "+parseFloat(v[i]/vAll))
-      // }
-       res.render('result', {
-         votes: [ parseFloat(vAll), 
-                  parseFloat(51), 
-                  parseFloat(12), 
-                  parseFloat(7), 
-                  parseFloat(20), 
-                  parseFloat(10), 
-                  parseFloat(0)] // Percentages
-       });
-
+      res.render('result', {
+        votes: [perc[0], perc[1], perc[2], perc[3], perc[4], perc[5], perc[6]]   // percentage of votes
+      });
+    });
   
   });
 
