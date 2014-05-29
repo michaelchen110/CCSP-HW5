@@ -116,17 +116,14 @@ app.get('/result', function(req, res){
       //   console.log("v"+i+" : "+v[i]);
       //   console.log("v"+i+"/vAll : "+parseFloat(v[i]/vAll))
       // }
-      if(vAll === 0){
-        vAll = 1;
-      }
        res.render('result', {
-         votes: [ parseFloat(v[0]/vAll), 
-                  parseFloat(v[1]/vAll), 
-                  parseFloat(v[2]/vAll), 
-                  parseFloat(v[3]/vAll), 
-                  parseFloat(v[4]/vAll), 
-                  parseFloat(v[5]/vAll), 
-                  parseFloat(v[6]/vAll)] // Percentages
+         votes: [ parseFloat(v[0]), 
+                  parseFloat(v[1]), 
+                  parseFloat(v[2]), 
+                  parseFloat(v[3]), 
+                  parseFloat(v[4]), 
+                  parseFloat(v[5]), 
+                  parseFloat(v[6])] // Percentages
        });
 
   
