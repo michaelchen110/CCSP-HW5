@@ -98,7 +98,7 @@ app.get('/result', function(req, res){
   vote.save(function(err, newVote){
     if( err ){
       req.flash('info', "你已經投過票囉！");
-      return res.redirect('/result');
+      return res.redirect('/');
     }
   //
   //   ... ...
@@ -111,20 +111,14 @@ app.get('/result', function(req, res){
       }
       vAll = vAll/100;
        res.render('result', {
-         // votes: [v[0]/vAll, 
-         //          v[1]/vAll, 
-         //          v[2]/vAll, 
-         //          v[3]/vAll, 
-         //          v[4]/vAll, 
-         //          v[5]/vAll, 
-         //          v[6]/vAll] // Percentages
-         votes: [v[0], 
-                  v[1], 
-                  v[2], 
-                  v[3], 
-                  v[4], 
-                  v[5], 
-                  v[6]] // Percentages
+         votes: [v[0]/vAll, 
+                  v[1]/vAll, 
+                  v[2]/vAll, 
+                  v[3]/vAll, 
+                  v[4]/vAll, 
+                  v[5]/vAll, 
+                  v[6]/vAll] // Percentages
+         
        });
   
   });
