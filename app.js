@@ -110,7 +110,7 @@ app.get('/result', function(req, res){
         vAll += v[i];
       }
       vAll = vAll/100;
-       res.render('result', {
+       res.render('/result', {
          votes: [v[0]/vAll, 
                   v[1]/vAll, 
                   v[2]/vAll, 
@@ -118,7 +118,6 @@ app.get('/result', function(req, res){
                   v[4]/vAll, 
                   v[5]/vAll, 
                   v[6]/vAll] // Percentages
-         
        });
   
   });
