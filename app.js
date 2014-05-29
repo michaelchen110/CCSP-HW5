@@ -106,11 +106,11 @@ app.get('/result', function(req, res){
       var v = [];
       var vAll = 0;
       for(var i = 0; i<7;i++){
-        v[i] = Vote.find({vote: 0}).count();
+        v[i] = Vote.find({vote: i}).count();
         vAll += v[i];
       }
       vAll = vAll/100;
-       res.render('/result', {
+       res.render('result', {
          votes: [v[0]/vAll, 
                   v[1]/vAll, 
                   v[2]/vAll, 
