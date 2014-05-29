@@ -116,6 +116,9 @@ app.get('/result', function(req, res){
       //   console.log("v"+i+" : "+v[i]);
       //   console.log("v"+i+"/vAll : "+parseFloat(v[i]/vAll))
       // }
+      if(vAll === 0){
+        vAll = 1;
+      }
        res.render('result', {
          votes: [ parseFloat(v[0]/vAll), 
                   parseFloat(v[1]/vAll), 
